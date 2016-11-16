@@ -1,5 +1,12 @@
 <?php
-	require_once("../includes/header.php");
+require_once("../includes/header.php");
+if(!isset($_SESSION["u_id"]))
+{
+	require_once("../includes/functions.php");
+	redto("../login.php");
+}
+else
+{
 	require_once("../includes/menu.php");
 
 ?>
@@ -27,4 +34,5 @@
 </div>
 <?php 
 	require_once("../includes/footer.php");
+}
 ?>

@@ -1,6 +1,14 @@
 <?php
+session_start();
+if(!isset($_SESSION["u_id"]))
+{
 	require_once("../includes/functions.php");
-	session_start();
+	redto("../login.php");
+}
+else
+{
+	require_once("../includes/functions.php");
     session_destroy();
     redto("../login.php");
+}
 ?>

@@ -1,5 +1,13 @@
 <?php
 include_once("/includes/header.php");
+if(isset($_SESSION["u_id"]))
+{
+	require_once("/includes/functions.php");
+	redto("public/bund.php");
+}
+else
+{
+
 require_once("/includes/functions.php");
 ?>
 <div class="well page-header">
@@ -69,4 +77,6 @@ require_once("/includes/functions.php");
 
 <?php
 include_once("/includes/footer.php");
+}
+
 ?>

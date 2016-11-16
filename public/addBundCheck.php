@@ -1,5 +1,12 @@
 <?php
 	session_start();
+if(!isset($_SESSION["u_id"]))
+{
+	require_once("../includes/functions.php");
+	redto("../login.php");
+}
+else
+{
 	require_once("../includes/functions.php");
 
 	if (isset($_POST['addBund']))
@@ -30,5 +37,5 @@
 		mysqli_close($connection);
 		redto("addBund.php");
 	}
-	
+}
 ?>

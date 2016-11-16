@@ -1,6 +1,13 @@
 <?php
+require_once("../includes/header.php");
+if(!isset($_SESSION["u_id"]))
+{
 	require_once("../includes/functions.php");
-	require_once("../includes/header.php");
+	redto("../login.php");
+}
+else
+{
+	require_once("../includes/functions.php");
 	require_once("../includes/menu.php");
 	$connection=connectDb();
 	$u_id=$_SESSION["u_id"];
@@ -11,8 +18,7 @@
 		<div class="form-group form-group-md">
                <label class="col-md-2 control-label">Tickets</label>
                <div class="col-md-6 form-group-md">
-					<select  class="btn btn-default" name="r_comName" required>
-						<option value="">Company Names</option>
+					<select  class="btn btn-default" value="" name="r_comName" required>
 <?php
 	while($row=mysqli_fetch_array($result)) 
 	{
@@ -112,4 +118,5 @@
 </div>
 <?php 
 	require_once("../includes/footer.php");
+}
 ?>

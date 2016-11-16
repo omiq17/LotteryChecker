@@ -1,6 +1,13 @@
 <?php
+require_once("../includes/header.php");
+if(!isset($_SESSION["u_id"]))
+{
 	require_once("../includes/functions.php");
-	require_once("../includes/header.php");
+	redto("../login.php");
+}
+else
+{
+	require_once("../includes/functions.php");
 	require_once("../includes/menu.php");
 	$connection=connectDb();
 	$u_id=$_SESSION["u_id"];
@@ -55,4 +62,5 @@
 	
 	mysqli_close($connection);
 	require_once("../includes/footer.php");
+}
 ?>
