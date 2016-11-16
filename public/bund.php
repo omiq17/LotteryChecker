@@ -11,14 +11,16 @@ else
 	require_once("../includes/menu.php");
 	$connection=connectDb();
 	$u_id=$_SESSION["u_id"];
-	$query="SELECT u_name FROM `user` WHERE user.u_id='$u_id'";
+	$query="SELECT u_fullName,u_name FROM `user` WHERE user.u_id='$u_id'";
 	$result=runQuery($connection, $query);
 	$row=mysqli_fetch_assoc($result);
 	$u_name=$row['u_name'];
+	$u_fullName=$row['u_fullName'];
 ?>
 <div class="well container">
-	<div class="container">
-		<p class="btn well">User Name : <?php echo "$u_name";?></p>
+	<div style="text-align: center; width: 300px; padding-bottom: 30px" class="container">
+		<p class=" well">User Full Name : <?php echo "$u_fullName";?></p>
+		<p class=" well">User Name : <?php echo "$u_name";?></p>
 	</div>
 	<div class="col-md-12 content">
 		<div>
